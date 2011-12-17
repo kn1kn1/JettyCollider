@@ -1,11 +1,9 @@
 JettyCollider
 =============
-* * *
 
 Introduction
 ------------
 JettyCollider is a remote control application which enables you to execute SuperCollider programming language (sclang) on web browser.
-* * *
 
 System Requirements
 -------------------
@@ -20,7 +18,6 @@ Web browser which supports WebSocket
   - Safari
   - Chrome
   - Firefox
-* * *
 
 Usage
 -----
@@ -39,7 +36,6 @@ Running sign is the SuperCollider icon displayed in task tray.
 
 ### Client Side
 Access "http:[server address]:[server port]/" by web browser.
-* * *
 
 Configuration Files
 -------------------
@@ -52,7 +48,6 @@ Configuration Files
 
 ### startup.sc
 Additional startup file sclang executes after class library initialization. This file is not needed if you do not have any initialize operation or already have configured '~/.sclang.sc' or 'startup.sc'.
-* * *
 
 License
 -------
