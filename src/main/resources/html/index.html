@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>JettyCollider</title>
+<link type="text/css" href="common.css" rel="stylesheet">
+<script src="common.js" type="text/javascript"></script>
+</head>
+<body>
+<div>
+<textarea id="code">
+(
+// analog bubbles
+{
+	f = LFSaw.kr(0.4, 0, 24, LFSaw.kr([8,7.23], 0, 3, 80)).midicps; // glissando function
+	CombN.ar(SinOsc.ar(f, 0, 0.04), 0.2, 0.2, 4) // echoing sine wave
+}.play)
+</textarea>
+</div>
+<div id ="buttons">
+  <input type="button" id="start_server" value="Start Server" />
+  <input type="button" id="stop_server" value="Stop Server" />
+  <input type="button" id="evaluate" value="Evaluate" />
+  <input type="button" id="stop_sound" value="Stop Sound" />
+  <input type="button" id="toggle_recording" value="Toggle Recording" />
+  <input type="button" id="restart_interpreter" value="Restart Interpreter" />
+  <input type="button" id="clear_output" value="Clear output" />
+</div>
+<div>
+  <textarea id="stdout"></textarea>
+</div>
+</body>
+</html>

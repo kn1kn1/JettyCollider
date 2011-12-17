@@ -1,0 +1,29 @@
+<configuration>
+	<appender name="LOGFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/jettycollider.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>logs/jettycollider.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>10</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>
+				%date{yyyy-MM-dd HH:mm:ss:SSS} %-5level %class{0} %method %line %msg%n
+			</pattern>
+		</encoder>
+	</appender> 
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>
+				%date{yyyy-MM-dd HH:mm:ss:SSS} %-5level %class{0} %method %line %msg%n
+			</pattern>
+		</layout>
+	</appender>
+	<root>
+		<level value="debug" />
+		<appender-ref ref="LOGFILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

@@ -1,0 +1,3 @@
+SwingOSC.program = "/Applications/SuperCollider/SwingOSC.jar";
+SwingOSC.default.boot;
+SwingOSC.default.waitForBoot({Server.local.makeWindow;Server.internal.makeWindow;});
