@@ -111,6 +111,8 @@ public class SCLangProcess {
 		} else {
 			stdin.write(0x0c);
 		}
+		// FIXME workaround for linux
+		stdin.write("\r");
 		stdin.flush();
 	}
 
