@@ -61,7 +61,7 @@ public class SCLangProcess {
 
 	public SCLangProcess(String sclangRuntimeFolder, String option, StartupSCFile startupFile) {
 		this.runtime = Runtime.getRuntime();
-		this.command = sclangRuntimeFolder + "sclang" + option;
+		this.command = sclangRuntimeFolder + "sclang" + " -i JettyCollider" + option;
 		this.startupFile = startupFile;
 	}
 
@@ -111,8 +111,6 @@ public class SCLangProcess {
 		} else {
 			stdin.write(0x0c);
 		}
-		// FIXME workaround for linux
-		stdin.write("\r");
 		stdin.flush();
 	}
 
