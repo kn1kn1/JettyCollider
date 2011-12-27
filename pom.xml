@@ -4,7 +4,7 @@
 	<groupId>JettyCollider</groupId>
 	<artifactId>JettyCollider</artifactId>
 	<name>JettyCollider</name>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<properties>
 		<package.package-name>jettycollider</package.package-name>
 		<package.main-class>${package.package-name}.JettyColliderServerMain</package.main-class>

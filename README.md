@@ -8,7 +8,7 @@ JettyCollider is a remote control application which enables you to execute Super
 System Requirements
 -------------------
 ### Server Side
-  - Mac OS X 10.4.9 or greater
+  - Mac OS X (10.4.9 or greater) or Linux
   - SuperCollider 3.4.4
   - Java SE 6
 
