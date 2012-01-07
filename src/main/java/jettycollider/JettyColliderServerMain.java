@@ -58,7 +58,7 @@ public class JettyColliderServerMain {
 	private static final Logger logger = LoggerFactory.getLogger(JettyColliderServerMain.class);
 
 	private static final int DEFAULT_PORT = 7777;
-	private static final int DEFAULT_WS_IDLE_TIME = 60 * 60 * 1000;	// 1hour; 3600000msec.
+	private static final int DEFAULT_WS_IDLE_TIME = 60 * 60 * 1000;	// 1hour; 3,600,000msec.
 	private static final String DEFAULT_SCLANG_RUNTIME_FOLDER_PATH = SCLangProcess.SCLANG_RUNTIME_FOLDER_MAC;
 
 	public static void main(String[] args) throws Exception {
@@ -91,7 +91,7 @@ public class JettyColliderServerMain {
 		return properties;
 	}
 
-	private static void createSystemTrayMenu() throws AWTException {
+	private static void createSystemTrayMenu() {
 		MenuItem quitMenuItem = new MenuItem("Quit");
 		quitMenuItem.addActionListener(new ActionListener() {
 			@Override
@@ -110,7 +110,11 @@ public class JettyColliderServerMain {
 		trayIcon.setPopupMenu(popupMenu);
 
 		SystemTray systemTray = java.awt.SystemTray.getSystemTray();
-		systemTray.add(trayIcon);
+		try {
+			systemTray.add(trayIcon);
+		} catch (AWTException e) {
+			logger.error("adding tray icon failed.", e);
+		}
 	}
 
 	private static void startServer(final int port, int wsMaxIdleTime, String sclangRuntimeFolder,
