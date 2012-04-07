@@ -9,7 +9,7 @@ System Requirements
 -------------------
 ### Server Side
   - Mac OS X (10.4.9 or greater) or Linux
-  - SuperCollider 3.4.4
+  - SuperCollider (3.4.4 or greater)
   - Java SE 6
 
 ### Client Side
@@ -42,7 +42,7 @@ Configuration Files
 ### jettycollider.properties
   - port: server port number. [default: 7777]
   - ws.maxIdleTime: max idle time in msec to close WebSocket connection. [default: 3,600,000]
-  - sclangRuntimeFolder.path: path to parent folder of sclang. [default: /Applications/SuperCollider/]
+  - sclangRuntimeFolder.path: path to parent folder of sclang. [default: /Applications/SuperCollider/SuperCollider.app/Contents/Resources/]
   - browseAfterStarted: boolean value whether web browser is invoked after JettyCollider started. [default: true]
   - startupScFile.path: path to additional startup.sc file. [default: (not specified)]
 

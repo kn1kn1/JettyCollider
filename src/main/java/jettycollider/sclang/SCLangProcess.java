@@ -3,7 +3,7 @@
  *  - a remote control application which enables you to execute 
  *    SuperCollider programming language (sclang) on web browser.
  * 
- * Copyright (C) 2011  Kenichi Kanai
+ * Copyright (C) 2011-2012 Kenichi Kanai
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SCLangProcess {
-	public static final String SCLANG_RUNTIME_FOLDER_MAC = "/Applications/SuperCollider/";
+	public static final String SCLANG_RUNTIME_FOLDER_MAC = "/Applications/SuperCollider/SuperCollider.app/Contents/Resources/";
 
 	private static final Logger logger = LoggerFactory.getLogger(SCLangProcess.class);
 
@@ -54,13 +54,16 @@ public class SCLangProcess {
 	public SCLangProcess(String sclangRuntimeFolder) {
 		this(sclangRuntimeFolder, null);
 	}
-	
+
 	public SCLangProcess(String sclangRuntimeFolder, StartupSCFile startupFile) {
 		this(sclangRuntimeFolder, " -d " + sclangRuntimeFolder, startupFile);
 	}
 
 	public SCLangProcess(String sclangRuntimeFolder, String option, StartupSCFile startupFile) {
 		this.runtime = Runtime.getRuntime();
+		if (!sclangRuntimeFolder.endsWith("/")) {
+			sclangRuntimeFolder = sclangRuntimeFolder + "/";
+		}
 		this.command = sclangRuntimeFolder + "sclang" + " -i JettyCollider" + option;
 		this.startupFile = startupFile;
 	}
@@ -167,9 +170,13 @@ public class SCLangProcess {
 							logger.debug("dispose - process.destroy();");
 							process.destroy();
 						} finally {
-							for (ProcessMonitor monitor : monitorList) {
-								logger.debug("dispose - monitor.dispose();");
-								monitor.dispose();
+							try {
+								for (ProcessMonitor monitor : monitorList) {
+									logger.debug("dispose - monitor.dispose();");
+									monitor.dispose();
+								}
+							} finally {
+								monitorList.clear();
 							}
 						}
 					}

@@ -3,7 +3,7 @@
  *  - a remote control application which enables you to execute 
  *    SuperCollider programming language (sclang) on web browser.
  * 
- * Copyright (C) 2011  Kenichi Kanai
+ * Copyright (C) 2011-2012 Kenichi Kanai
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -67,6 +67,9 @@ public class JettyColliderServerMain {
 		int wsMaxIdleTime = Integer.parseInt(properties.getProperty("ws.maxIdleTime",
 				String.valueOf(DEFAULT_WS_IDLE_TIME)));
 		String sclangRuntimeFolder = properties.getProperty("sclangRuntimeFolder.path", DEFAULT_SCLANG_RUNTIME_FOLDER_PATH);
+		if (!sclangRuntimeFolder.endsWith("/")) {
+			sclangRuntimeFolder = sclangRuntimeFolder + "/";
+		}
 		boolean browseAfterStarted = Boolean.parseBoolean(properties.getProperty("browseAfterStarted",
 				Boolean.TRUE.toString()));
 		String startupScFilePath = properties.getProperty("startupScFile.path");
